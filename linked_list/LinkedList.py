@@ -53,27 +53,49 @@ class LinkedList:
       else:
         return False
   
-  def delete_value(self, data):
+  # def delete_value(self, data):
    
-    if self.is_empty():
-      return False
-    else:
-      tmp_node = self.get_head()
-      if tmp_node.data == data:
-        self.head_node = tmp_node.next_element
-        tmp_node.next = None
-        return True
-      while tmp_node.next_element is not None:
-        if tmp_node.next_element.data == data:
-          tmp_node.next_element = tmp_node.next_element.next_element
-          return True
-        tmp_node = tmp_node.next_element
+  #   if self.is_empty():
+  #     return False
+  #   else:
+  #     tmp_node = self.get_head()
+  #     if tmp_node.data == data:
+  #       self.head_node = tmp_node.next_element
+  #       tmp_node.next = None
+  #       return True
+  #     while tmp_node.next_element is not None:
+  #       if tmp_node.next_element.data == data:
+  #         tmp_node.next_element = tmp_node.next_element.next_element
+  #         return True
+  #       tmp_node = tmp_node.next_element
 
-      if tmp_node.data == data:
-        tmp_node = None
-        return True
-      else:
-        return False
+  #     if tmp_node.data == data:
+  #       tmp_node = None
+  #       return True
+  #     else:
+  #       return False
+      
+  def delete_value(self, value):
+    previous = None
+    deleted = False
+    current = self.get_head()
+
+    if current.data == value:
+      self.head_node = current.next_element
+      deleted = True
+      current = None
+      return deleted
+    
+    while current is not None:
+      if current.data == value:
+        previous.next = current.next
+        current.next = None
+        deleted = True
+        break
+      previous = current
+      current = current.next
+    
+    return deleted
            
   
   def print_list(self):
