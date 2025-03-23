@@ -26,6 +26,13 @@ class LinkedList:
       tmp.next_element = tmp_node
       return self.head_node
   
+  def delete_at_head(self):
+    first_element = self.get_head()
+    if first_element is not None:
+      self.head_node = first_element.next_element
+      first_element.next_element = None
+    return self.head_node
+  
   def is_empty(self):
     if self.head_node:
       return False
@@ -45,6 +52,29 @@ class LinkedList:
         return True
       else:
         return False
+  
+  def delete_value(self, data):
+   
+    if self.is_empty():
+      return False
+    else:
+      tmp_node = self.get_head()
+      if tmp_node.data == data:
+        self.head_node = tmp_node.next_element
+        tmp_node.next = None
+        return True
+      while tmp_node.next_element is not None:
+        if tmp_node.next_element.data == data:
+          tmp_node.next_element = tmp_node.next_element.next_element
+          return True
+        tmp_node = tmp_node.next_element
+
+      if tmp_node.data == data:
+        tmp_node = None
+        return True
+      else:
+        return False
+           
   
   def print_list(self):
     if self.is_empty():
@@ -71,6 +101,13 @@ lst.insert_at_tail(25)
 lst.print_list()
 print(lst.search(7))
 print(lst.search(21))
+
+lst.delete_at_head()
+lst.print_list()
+
+print('Delete value 8')
+print(lst.delete_value(8))
+lst.print_list()
 
 lst1 = LinkedList()
 lst1.insert_at_tail(23)
