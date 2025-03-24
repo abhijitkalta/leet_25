@@ -96,7 +96,29 @@ class LinkedList:
       current = current.next
     
     return deleted
-           
+  
+  def get_length(self):
+    current = self.get_head()
+    length = 0
+    while current is not None:
+      length += 1
+      current = current.next_element
+    return length
+  
+  def find_mid(self):
+    current = self.get_head()
+    length = self.get_length()
+    mid, i = 0, 0
+    if length%2==1:
+      mid = length//2 + 1
+    else:
+      mid = length//2 + 1
+    while i < mid:
+      res = current.data
+      current = current.next_element
+      i += 1
+    return res
+    
   
   def print_list(self):
     if self.is_empty():
@@ -130,6 +152,9 @@ lst.print_list()
 print('Delete value 8')
 print(lst.delete_value(8))
 lst.print_list()
+print(lst.get_length())
+
+print('Mid', lst.find_mid())
 
 lst1 = LinkedList()
 lst1.insert_at_tail(23)
