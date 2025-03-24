@@ -132,6 +132,39 @@ class LinkedList:
       print(tmp_node.data,'->None')
       return True
       
+  def remove_duplicate(self):
+    current = self.get_head()
+    if current is None:
+      return None
+    elif current.next_element is None:
+      return self.head_node
+    else:
+      while current is not None:
+        inner = current
+        while inner is not None:
+          if inner.next_element:
+            if current.data == inner.next_element.data:
+             new_next_element = inner.next_element.next_element
+             inner.next_element = new_next_element
+            else:
+              inner = inner.next_element
+          else:
+            inner = inner.next_element
+        current = current.next_element
+    return self.head_node
+
+  def find_nth(self, n):
+    current = self.get_head()
+    if current is None:
+      return None
+    else:
+      len_lis = self.get_length()
+      i = 0
+      while i <= len_lis - n - 1:
+        current = current.next_element
+        i += 1
+    return current.data
+            
   
 lst = LinkedList()
 print(lst.is_empty())
@@ -155,6 +188,15 @@ lst.print_list()
 print(lst.get_length())
 
 print('Mid', lst.find_mid())
+lst.insert_at_tail(7)
+lst.print_list()
+lst.insert_at_head(7)
+lst.print_list()
+lst.remove_duplicate()
+print('Remove duplicate')
+lst.print_list()
+
+print('Find nth', lst.find_nth(4))
 
 lst1 = LinkedList()
 lst1.insert_at_tail(23)
