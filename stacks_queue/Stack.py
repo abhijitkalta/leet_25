@@ -14,8 +14,8 @@ class Stack:
     if self.is_empty():
       return None
     else:
-      self.stack_list.pop()
       self.stack_size -= 1
+      return self.stack_list.pop()
   
   def peek(self):
     if self.is_empty():
