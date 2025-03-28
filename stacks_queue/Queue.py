@@ -51,4 +51,6 @@ if __name__ == "__main__" :
   print("front(): " + str(queue_obj.front()))
   print("size(): " + str(queue_obj.size()))
   
+  print(bin(5))
+  
   
