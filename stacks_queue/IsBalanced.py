@@ -25,5 +25,6 @@ def is_balanced(exp):
 
 exp = '{}()[(){}[]([])]()()'
 print(is_balanced(exp))
+
 exp = "[)"
 print(is_balanced(exp))
