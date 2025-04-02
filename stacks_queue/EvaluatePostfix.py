@@ -23,6 +23,5 @@ def evaluate_post_fix(exp):
 
 if __name__ == '__main__':
   print(evaluate_post_fix("34*2+"))
-  print('**')
   print(evaluate_post_fix("82/3+"))
   print(evaluate_post_fix('1693/-*')) 
