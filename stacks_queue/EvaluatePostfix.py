@@ -25,3 +25,4 @@ if __name__ == '__main__':
   print(evaluate_post_fix("34*2+"))
   print(evaluate_post_fix("82/3+"))
   print(evaluate_post_fix('1693/-*')) 
+  print(evaluate_post_fix('1693/+*')) 
